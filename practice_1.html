@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style type="text/css">
+
+	/* Style the lines by removing the fill and applying a stroke */
+	.line {
+	    fill: none;
+	    stroke-width: 3;
+	}
+	  
+	.overlay {
+	  fill: none;
+	  pointer-events: all;
+	}
+
+	.focus circle {
+	  fill: none;
+	  stroke: steelblue;
+	}
+
+</style>
+<!-- Body tag is where we will append our SVG and SVG objects-->
+<body>
+</body>
+
+<!-- Load in the d3 library -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+
+// Use the margin convention practice 
+var margin = {top: 50, right: 50, bottom: 50, left: 50}
+  , width = window.innerWidth - margin.left - margin.right // Use the window's width 
+  , height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
+
+// the number of datapoints
+var n = 20;
+
+// the number of lines
+// practice 1-3: the number to be changed below
+var nline = 5;
+
+// random labels
+var labels = ["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "vivamus", "lobortis", "mollis", "dui", "hendrerit", "himenaeos", "in malesuada", "accumsan", "mattis"];
+var labels_to_be_used = labels.slice(0, nline);
+
+// color scale
+var color = d3.scaleOrdinal()
+	.domain(labels_to_be_used)
+	// practice 1-1, 1-2: the colors to be changed below
+	.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+
+// x,y scale
+var xScale = d3.scaleLinear()
+    .domain([0, n-1]) // input
+    .range([0, width]); // output
+var yScale = d3.scaleLinear()
+    .domain([0, 1]) // input 
+    .range([height, 0]); // output 
+
+// d3's line generator
+var line = d3.line()
+    .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
+    .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
+    .curve(d3.curveMonotoneX) // apply smoothing to the line
+
+// Add the SVG to the page and employ 
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Call the x axis in a group tag
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
+
+// Call the y axis in a group tag
+svg.append("g")
+    .attr("class", "y axis")
+    .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
+
+for (var i = 0; i < nline; i++) {
+	var dataset = d3.range(n).map(function(d) { return {"y": d3.randomUniform(1)() } })
+
+	svg.append("path")
+	    .datum(dataset) 
+	    .attr("class", "line") 
+	    .attr('stroke', color(labels_to_be_used[i]))
+	    .attr("d", line);  
+}
+
+
+</script>
