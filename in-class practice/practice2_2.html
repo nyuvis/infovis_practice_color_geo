@@ -37,7 +37,8 @@ body {
 var width = 960;
 var height = 500;
 
-var fillColor = d3.color('#1f78b4');
+var lowColor = '#f1eef6';
+var highColor = '#0570b0';
 
 // D3 Projection
 var projection = d3.geoAlbersUsa()
@@ -62,10 +63,12 @@ d3.csv("unemployment2019Sep.csv", function(data) {
   }
   var minVal = d3.min(dataArray)
   var maxVal = d3.max(dataArray)
+  var colorScale;
+  // practice 2-2, step 1: set a color scale which map the minVal to lowColor, and maxVal to highColor. Add your code here.
 
-  var scale;
-  // practice 2-1, Step 1: add scale for opacity
+
   
+
   // Load GeoJSON data and merge with states data
   d3.json("us-states.json", function(json) {
 
@@ -99,15 +102,57 @@ d3.csv("unemployment2019Sep.csv", function(data) {
       .enter()
       .append("path")
       .attr("d", path)
-      .style("stroke", "#fff")
-      .style("stroke-width", "1")
-      .style("fill", function(d) { 
-        var color = fillColor;
-
-        // practice 2-1, Step 2: change color opacity
-        
-        return color;
+      .attr("stroke", "#fff")
+      .attr("stroke-width", "1")
+      .attr("fill", function(d) { 
+          // practice 2-2, step 2: change the return color below
+          return highColor;
       });
+    
+    // add a legend
+    var w = 140, h = 300;
+
+    var key = d3.select("body")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h)
+      .attr("class", "legend");
+
+    var legend = key.append("defs")
+      .append("svg:linearGradient")
+      .attr("id", "gradient")
+      .attr("x1", "100%")
+      .attr("y1", "0%")
+      .attr("x2", "100%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+    legend.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", highColor)
+      .attr("stop-opacity", 1);
+      
+    legend.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", lowColor)
+      .attr("stop-opacity", 1);
+
+    key.append("rect")
+      .attr("width", w - 100)
+      .attr("height", h)
+      .attr("fill", "url(#gradient)")
+      .attr("transform", "translate(0,10)");
+
+    var y = d3.scaleLinear()
+      .range([h, 0])
+      .domain([minVal, maxVal]);
+
+    var yAxis = d3.axisRight(y);
+
+    key.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(41,10)")
+      .call(yAxis)
   });
 });
 </script>
