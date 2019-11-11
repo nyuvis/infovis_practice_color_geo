@@ -22,9 +22,9 @@ Please follow the instructions below:
 
 * Step 1: Redefine the stop values. The present values in `color_domain`  are randomly chosen. Now please use the strategy of *quartiles*. You can define the quartiles as described in [this post](https://www.geeksforgeeks.org/d3-js-d3-quantile-function/). 
 
-* Step 2: Create your opcity scale follow the instructions in **Practice 2-1**.
+* Step 2: Create your opacity scale follow the instructions in **Practice 2-1**.
 
-* Step 3: Replace the fixed number `0.5` by opcities that are assigned according to the unemployment rate. Check the instructions in **Practice 2-1**.
+* Step 3: Replace the fixed number `0.5` by opacities that are assigned according to the unemployment rate. Check the instructions in **Practice 2-1**.
 
 * Step 4: Replace the fixed color `#66c2a4` by color hues that are assigned according to the unemployment rate. Check the instructions in **Practice 2-2**.
 
