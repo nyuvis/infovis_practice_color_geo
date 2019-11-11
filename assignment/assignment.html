@@ -48,15 +48,26 @@
 			function ready(error, us, data) {
 				var pairRateWithId = {};
 				var pairNameWithId = {};
+				var rates = [];
 
 				data.forEach(function(d) {
 					pairRateWithId[+d.id] = +d.rate;
 					pairNameWithId[+d.id] = d.name;
+					rates.push(+d.rate)
 				});
+				// sort rates
+				rates.sort((a,b) => a-b);
 
 				// step 1: change color_domain to quartiles
-				var color_domain = [0, 2, 4, 6, 50];
-				var color_range = ['#ffffcc', '#c2e699', '#78c679', '#31a354', '#006837'];
+				var A = 0;  
+				var B = 2;  
+				var C = 4; 
+				var D = 8;  
+				var E = 30; 
+				var color_domain = [A, B, C, D, E];
+				// Define labels shown for legend. Display the value to 2 decimal places.
+				var color_domain_labels = color_domain.map(d => d.toFixed(2))
+				var color_range = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494'];
 				var colorScale = d3.scaleLinear()
 					.domain(color_domain)
 					.range(color_range);
@@ -82,7 +93,7 @@
 					.enter().append("g")
 					.attr("class", "legend");
 
-				// define svg gradiant
+				// ==== define svg gradiant ====
 				for (var i = 0; i < color_range.length - 1; i++) {
 					var defs = svg.append("defs");
 					var linearGradient = defs.append("linearGradient")
@@ -112,14 +123,14 @@
 					.attr("width", ls_w)
 					.attr("height", ls_h)
 					// step 5: set the linear gradient color pattern for the legend. Follow the instructions in the README.
-					.attr("fill", (d, i)=>"#66c2a4")
+					.attr("fill", '#66c2a4');
 
 
 				var legend_title = "Unemployment Rate in %";
 				svg.append("g")
 			      .attr("transform", "translate(0," + (ls_y+ls_h) + ")")
 			      .call(d3.axisBottom(d3.scaleOrdinal()
-			      	.domain(color_domain)
+			      	.domain(color_domain_labels)
 			      	.range([legend_left, legend_left+ls_w, legend_left+ls_w*2,legend_left+ls_w*3,legend_left+ls_w*4])
 			      ));
 
