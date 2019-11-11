@@ -8,5 +8,5 @@ In-class Practice: [here](https://github.com/nyuvis/infovis_practice_color_geo/t
 
 After-class Assignment: [here](https://github.com/nyuvis/infovis_practice_color_geo/tree/master/assignment)
 
-If you have any questions, please contact Jun via junyuan@nye.edu
+If you have any question, please ask it via Piazza.
 
