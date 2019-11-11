@@ -2,7 +2,7 @@
 
 Here is the assignment for the Info'Vis: Color and Geo .
 
-You can learn more from the [lecture slides](https://docs.google.com/presentation/d/1cKYRVT2eHdbc0HXdVBpt8FZa5ZJ47xnk8bcYWDQWQ6I/edit?usp=sharing) and [In Class Coding Practice](https://github.com/nyuvis/infovis_practice_color_geo/tree/master/in-class practice).
+You can learn more from the [lecture slides](https://docs.google.com/presentation/d/1cKYRVT2eHdbc0HXdVBpt8FZa5ZJ47xnk8bcYWDQWQ6I/edit?usp=sharing) and [In Class Coding Practice](https://github.com/nyuvis/infovis_practice_color_geo/tree/master/in-class%20practice).
 
 In this assignment, we need to implement a choropleth map of Unemployment Rate in US ([data source](https://blog.datawrapper.de/how-to-choose-a-color-palette-for-choropleth-maps/)).  In the end of this assignment, you will be able to visualize the distribution of unimplement rate in a county-level US map together with a legend of how the color is used in this map.
 
