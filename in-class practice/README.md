@@ -2,7 +2,7 @@
 
 Here is the coding practice for Info'Vis: Color and Geo. 
 
-You can learn more from the [lecture slides](https://docs.google.com/presentation/d/1cKYRVT2eHdbc0HXdVBpt8FZa5ZJ47xnk8bcYWDQWQ6I/edit?usp=sharing) and [after-class assignment]().
+You can learn more from the [lecture slides](https://docs.google.com/presentation/d/1cKYRVT2eHdbc0HXdVBpt8FZa5ZJ47xnk8bcYWDQWQ6I/edit?usp=sharing) and [after-class assignment](https://github.com/nyuvis/infovis_practice_color_geo/tree/master/assignment).
 
 ## Practice 1: Categorical Color Scale, Line Chart
 
@@ -18,7 +18,7 @@ Practice 1 is to help you get familiar with the online color tools that provide 
 
 #### Practice 1-1: Choose Appropriate Color Scheme
 
-[practice_1.html]() presents a line chart of 5 randamly generated lines. Each line represents a category. Please change the colors we used for lines. 
+[practice_1.html](https://github.com/nyuvis/infovis_practice_color_geo/blob/master/in-class practice/practice_1.html) presents a line chart of 5 randamly generated lines. Each line represents a category. Please change the colors we used for lines. 
 
 In the lecture, we provide a list of on-line tools that give coloring suggestions. Explore them, and choose a color scheme you feel appropriate for the categories. When you choose the colors, don't forget the desired properties of a categorical color scale.
 
@@ -52,7 +52,7 @@ Practice 2 is to help you be familiar with the usage of quatitative color scales
 
 #### Practice 2-1: Change Color Intensity
 
-We can change the **opacity** of the filling color of states according to their unemployment rate. In default, we think the darker the higher rate. Open [practice2_1.html]() to finish the practice.
+We can change the **opacity** of the filling color of states according to their unemployment rate. In default, we think the darker the higher rate. Open [practice2_1.html](https://github.com/nyuvis/infovis_practice_color_geo/blob/master/in-class practice/practice2_1.html) to finish the practice.
 
 First, we defined a `fillColor` at line 40. Here we use the function `d3.color() ` to change the color to rgb form.
 
@@ -93,7 +93,7 @@ svg.selectAll("path")
 
 #### Practice 2-2: Change Color Hue
 
-We can change the **hue** of the filling color of states according to their unemployment rate. In default, we think the darker the higher rate. Open [practice2_2.html]() to finish the practice.
+We can change the **hue** of the filling color of states according to their unemployment rate. In default, we think the darker the higher rate. Open [practice2_2.html][https://github.com/nyuvis/infovis_practice_color_geo/blob/master/in-class%20practice/practice2_1.html](https://github.com/nyuvis/infovis_practice_color_geo/blob/master/in-class%20practice/practice2_2.html) to finish the practice.
 
 First we defined `lowColor` and `highColor` at line 40, 41.
 
@@ -111,7 +111,7 @@ Now we can apply the color scale when coloring the states. Find the `step 2` in 
 
 Check [this article](https://blog.datawrapper.de/how-to-choose-a-color-palette-for-choropleth-maps/) to know more about **How to choose a color palette for choropleth maps**. In this article, it shows the choropleth map after applying color plettes with multiple stop colors. And it covers different strategies of assigning **stop colors** (min/max, min/median/max, quartiles, etc.).
 
-In this practice 2-2, we have set stop colors to *min* and *max*. How about setting 3 stop colors for *min*, *median*, and *max*?
+In the practice 2-2, we have set stop colors to *min* and *max*. How about setting 3 stop colors for *min*, *median*, and *max*?
 
 Now, let's start from the `stop 0` and `step 1` in the code. In `step 0`, you should choose a sequential color scheme. Check how we do it in **practice 1-1**.
 
