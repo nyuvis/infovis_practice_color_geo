@@ -5,9 +5,18 @@ Here is the assignment for the Info'Vis: Color and Geo .
 You can learn more from the [lecture slides](https://docs.google.com/presentation/d/1cKYRVT2eHdbc0HXdVBpt8FZa5ZJ47xnk8bcYWDQWQ6I/edit?usp=sharing) and [In Class Coding Practice](https://github.com/nyuvis/infovis_practice_color_geo/tree/master/in-class%20practice).
 
 In this assignment, we need to implement a choropleth map of Unemployment Rate in US ([data source](https://blog.datawrapper.de/how-to-choose-a-color-palette-for-choropleth-maps/)).  In the end of this assignment, you will be able to visualize the distribution of unemployment rate in a county-level US map together with a legend of how the color is used in this map. The final result should be like this:
+
+
 ![image](https://user-images.githubusercontent.com/9759891/68553889-d47aad80-03f2-11ea-9380-e933933644e4.png)
 
-#### Important Variables
+### Files
+`assignment.html`: the front-end code. You only need to change the content here.
+
+`data-VDNaC.csv`: the data file of unemployment rates.
+
+`us.json`: the geo data file for drawing county-level US map.
+
+### Important Variables
 `pairRateWithId`: the mapping from id to rate.
 
 `pairNameWithId`: the mapping from id to county name.
@@ -22,7 +31,7 @@ In this assignment, we need to implement a choropleth map of Unemployment Rate i
 
 `linearGradient`: the linear gradient color patterns.
 
-#### Instructions
+### Instructions
 
 Please follow the instructions below:
 
