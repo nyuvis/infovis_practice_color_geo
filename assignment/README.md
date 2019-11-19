@@ -50,3 +50,5 @@ Please follow the instructions below:
   * then we need to create an SVG element, say, a rectangle and fill with gradient. 
 
   What you need to do here is to assign the predefined linear gradient color to this rectangle at the place where we mark `step 5`.
+  
+  Hint: `url(#linear-gradient)` in the tutorial means the color that the element with the **id** of `linear-gradient` represents.
